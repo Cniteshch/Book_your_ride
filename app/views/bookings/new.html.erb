@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-fixed">
+      <div class="content">
+        <%= render 'bookings/form' %>
+        <%= link_to 'Get Fare Estimate', calculate_fare_path, id: :get_fare_estimate, class: 'btn btn-default btn-block' %>
+        <hr>
+        <div id="driver_info">
+          <%= render 'shared/driver_info', driver: @driver %>
+        </div>
+        <fieldset id="confirm_booking_div" disabled="true">
+          <%= link_to 'Confirm', confirm_bookings_path, method: :post, id: 'confirm_booking', class: 'btn btn-success btn-block' %>
+        </fieldset>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-relative">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/fare_estimate' %>
+<% if flash[:message] %>
+  <div class="alert alert-dismissable alert-fixed alert-info">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:message] %>
+  </div>
+<% end %>

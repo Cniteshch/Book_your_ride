@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-fixed-top <%= 'navbar-inverse' if user_signed_in? %>" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <% if user_signed_in? %>
+        <%= link_to 'Cabs On Demand ', root_path, class: 'navbar-brand white' %>
+      <% else %>
+        <%= link_to 'Cabs On Demand', root_path, class: 'navbar-brand' %>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

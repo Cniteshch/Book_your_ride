@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cabs On Demand!</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhq_Q8j_AQ_FjTH8ysZvL_GYhy0W7mtfE&signed_in=true&libraries=places"></script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/navbar' %>
+    <% unless notice.blank? %>
+    <div class="alert alert-info alert-dismissable alert-fixed">
+      <%= notice %>
+      <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+    </div>
+    <% end %>
+    <% unless alert.blank? %>
+    <div class="alert alert-danger alert-dismissable alert-fixed">
+      <%= alert %>
+      <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+    </div>
+    <% end %>
+    <%= yield %>
+
+  </body>
+</html>
